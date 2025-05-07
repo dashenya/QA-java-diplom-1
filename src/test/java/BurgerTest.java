@@ -57,6 +57,22 @@ public class BurgerTest {
     }
 
     @Test
+    public void setBunsTest() {
+        bun = new Bun("Пшеничная", 20.00f);
+
+        burger.setBuns(bun);
+
+        float expectedValueBunPrice = 20.00f;
+        float actualValueBunPrice = bun.getPrice();
+
+        String expectedValueBunName = "Пшеничная";
+        String actualValueBunName = bun.getName();
+
+        Assert.assertEquals(actualValueBunPrice,expectedValueBunPrice, 0);
+        Assert.assertEquals(actualValueBunName,expectedValueBunName);
+    }
+
+    @Test
     public void addIngredientTest() {
 
         int initialSizeOfIngridients = ingredients.size();
@@ -81,6 +97,20 @@ public class BurgerTest {
         int expectedValue = initialSizeOfIngridients - 1;
 
         Assert.assertEquals(actualValue,expectedValue);
+    }
+
+    @Test
+    public void moveIngredientTest() {
+
+        Ingredient ingredient1Old = ingredients.get(0);
+        Ingredient ingredient2Old = ingredients.get(1);
+        burger.moveIngredient(0, 1);
+
+        Ingredient ingredient1New = ingredients.get(0);
+        Ingredient ingredient2New = ingredients.get(1);
+
+        Assert.assertEquals(ingredient2New, ingredient1Old);
+        Assert.assertEquals(ingredient1New, ingredient2Old);
     }
 
     @Test

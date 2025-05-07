@@ -15,8 +15,8 @@ import java.util.List;
 <span class="fc" id="L15">    public List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();</span>
 
     public void setBuns(Bun bun) {
-<span class="nc" id="L18">        this.bun = bun;</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L18">        this.bun = bun;</span>
+<span class="fc" id="L19">    }</span>
 
     public void addIngredient(Ingredient ingredient) {
 <span class="fc" id="L22">        ingredients.add(ingredient);</span>
@@ -27,8 +27,8 @@ import java.util.List;
 <span class="fc" id="L27">    }</span>
 
     public void moveIngredient(int index, int newIndex) {
-<span class="nc" id="L30">        ingredients.add(newIndex, ingredients.remove(index));</span>
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L30">        ingredients.add(newIndex, ingredients.remove(index));</span>
+<span class="fc" id="L31">    }</span>
 
     public float getPrice() {
 <span class="fc" id="L34">        float price = bun.getPrice() * 2;</span>
