@@ -31,7 +31,7 @@ public class BurgerTest {
     private ArrayList<Ingredient> ingredients;
 
     @Before
-    public void createIngredientsList(){
+    public void createIngredientsList() {
         Mockito.when(filling.getPrice()).thenReturn(40.00f);
         Mockito.when(filling.getType()).thenReturn(SAUCE);
         Mockito.when(filling.getName()).thenReturn("Сладкий чили");
@@ -53,7 +53,7 @@ public class BurgerTest {
 
         float actualValue = burger.getPrice();
 
-        Assert.assertEquals(actualValue,expectedValue, 0);
+        Assert.assertEquals(actualValue, expectedValue, 0);
     }
 
     @Test
@@ -68,8 +68,8 @@ public class BurgerTest {
         String expectedValueBunName = "Пшеничная";
         String actualValueBunName = bun.getName();
 
-        Assert.assertEquals(actualValueBunPrice,expectedValueBunPrice, 0);
-        Assert.assertEquals(actualValueBunName,expectedValueBunName);
+        Assert.assertEquals(actualValueBunPrice, expectedValueBunPrice, 0);
+        Assert.assertEquals(actualValueBunName, expectedValueBunName);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class BurgerTest {
 
         int expectedValue = initialSizeOfIngridients + 1;
 
-        Assert.assertEquals(actualValue,expectedValue);
+        Assert.assertEquals(actualValue, expectedValue);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class BurgerTest {
         int actualValue = ingredients.size();
         int expectedValue = initialSizeOfIngridients - 1;
 
-        Assert.assertEquals(actualValue,expectedValue);
+        Assert.assertEquals(actualValue, expectedValue);
     }
 
     @Test
@@ -119,8 +119,19 @@ public class BurgerTest {
         Mockito.when(bun.getName()).thenReturn("Пшеничная");
         Mockito.when(bun.getPrice()).thenReturn(20.00f);
 
-        System.out.println(burger.getReceipt());
+        String actual = burger.getReceipt();
+
         Mockito.verify(bun, Mockito.times(2)).getName();
+
+        StringBuilder expected = new StringBuilder();
+        expected.append("(==== Пшеничная ====)").append(System.lineSeparator());
+        expected.append("= sauce Сладкий чили =").append(System.lineSeparator());
+        expected.append("= filling Рваная свинина =").append(System.lineSeparator());
+        expected.append("(==== Пшеничная ====)").append(System.lineSeparator());
+        expected.append(System.lineSeparator());
+        expected.append("Price: 480,000000").append(System.lineSeparator());
+
+        Assert.assertEquals(actual, expected.toString());
 
     }
 

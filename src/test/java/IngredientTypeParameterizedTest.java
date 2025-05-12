@@ -25,7 +25,7 @@ public class IngredientTypeParameterizedTest {
 
     @Test
     public void valueOfIngredientTypeTest() {
-        assertEquals(IngredientType.SAUCE, IngredientType.valueOf("SAUCE"));
+        assertEquals(ingredientType, IngredientType.valueOf(ingredientType.toString()));
     }
 
 }
